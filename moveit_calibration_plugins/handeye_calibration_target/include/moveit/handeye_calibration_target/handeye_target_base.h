@@ -250,6 +250,8 @@ public:
     }
 
     ROS_DEBUG_STREAM_NAMED(LOGNAME, "Set camera intrinsic parameter to: " << *msg);
+    ROS_INFO_STREAM("camera_matrix_: "<<camera_matrix_);
+    ROS_INFO_STREAM("distortion_coeffs_: "<<distortion_coeffs_);
     return true;
   }
 

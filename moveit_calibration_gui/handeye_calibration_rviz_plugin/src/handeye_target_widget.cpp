@@ -457,6 +457,7 @@ void TargetTabWidget::imageCallback(const sensor_msgs::ImageConstPtr& msg)
 
 void TargetTabWidget::cameraInfoCallback(const sensor_msgs::CameraInfoConstPtr& msg)
 {
+  ROS_INFO_STREAM("msg: "<<*msg);
   if (target_ && msg->height > 0 && msg->width > 0 && !msg->K.empty() && !msg->D.empty() &&
       (!camera_info_ || msg->K != camera_info_->K || msg->P != camera_info_->P))
   {
@@ -465,6 +466,7 @@ void TargetTabWidget::cameraInfoCallback(const sensor_msgs::CameraInfoConstPtr& 
     target_->setCameraIntrinsicParams(camera_info_);
     Q_EMIT cameraInfoChanged(*camera_info_);
   }
+  ROS_INFO_STREAM("msg: "<<*msg);
 }
 
 void TargetTabWidget::targetTypeComboboxChanged(const QString& text)
